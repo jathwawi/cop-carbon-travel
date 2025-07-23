@@ -126,18 +126,18 @@ ggplot2::ggsave("outputs/figure_2.png",
                 units = "mm",
                 dpi = 300)
 
-# Appendix Figure H
+# Appendix Figure A
 
-fah <- ggplot(data = world) +
+faa <- ggplot(data = world) +
   geom_sf(fill = "#e0e0e0", color = "#e0e0e0") +
   geom_point(data = routes_figure, aes(x = A_lon, y = A_lat), color = "darkgreen", size = 0.2) +
   geom_point(data = routes_figure, aes(x = B_lon, y = B_lat), color = "darkgreen", size = 0.2) +
   geom_path(data = route_figure_segment, aes(x = lon, y = lat, group = interaction(route_id, segment)), color = "darkgreen", size = 0.3, alpha = 0.5) +
   theme_void()
 
-## Draw Appendix Figure H
-ggplot2::ggsave("outputs/supplementary_figure_h.png",
-                plot = fah,
+## Draw Appendix Figure A
+ggplot2::ggsave("outputs/supplementary_figure_a.png",
+                plot = faa,
                 width = 180,
                 height = 200,
                 units = "mm",
