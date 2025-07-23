@@ -53,15 +53,15 @@ cop_summary_host <- cop_summary %>%
 world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
 
 # Add data
-cop_map <- cop_summary %>% 
-  dplyr::mutate(emissions_total = emissions * Number) %>% 
-  dplyr::select(Meeting, Delegation_ISO, emissions_total, Number) %>%
-  dplyr::summarise(emissions_total = sum(emissions_total),
-                   number_total = sum(Number),
-                   .by = "Delegation_ISO") %>% 
-  dplyr::mutate(emissions_attendee = emissions_total / number_total) %>% 
-  dplyr::left_join(world,
-                   by = c("Delegation_ISO" = "iso_a3_eh"))
+cop_map <- world %>% 
+  dplyr::left_join(cop_summary %>% 
+                     dplyr::mutate(emissions_total = emissions * Number) %>% 
+                     dplyr::select(Meeting, Delegation_ISO, emissions_total, Number) %>%
+                     dplyr::summarise(emissions_total = sum(emissions_total),
+                                      number_total = sum(Number),
+                                      .by = "Delegation_ISO") %>% 
+                     dplyr::mutate(emissions_attendee = emissions_total / number_total),
+                   by = c("iso_a3_eh" = "Delegation_ISO"))
 
 # Set as sf object
 cop_map <- sf::st_as_sf(cop_map)

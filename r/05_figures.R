@@ -74,8 +74,6 @@ f1c <- ggplot(data = cop_summary_delegation_wb,
 ## Draw Figure 1
 (f1a / f1b / f1c) + 
   plot_annotation(tag_levels = 'A',
-                  caption = "^ Host country was different to COP presidency for COP 2 (Zimbabwean presidency), COP 5 (Polish presidency), 
-                  COP 9 (Hungarian presidency), COP 3 (Fijian presidency), and COP 25 (Chilean presidency)",
                   theme = theme(plot.caption = element_text(hjust = 0)))
 
 
@@ -84,15 +82,17 @@ f1c <- ggplot(data = cop_summary_delegation_wb,
 ## Panel A
 f2a <- ggplot(cop_map) +
   geom_sf(aes(fill = emissions_attendee),
-          col = NA) +
+          col = "#b0b0b0",
+          linewidth = 0.01) +
   scale_fill_viridis_c(na.value = "grey90") +
   theme_void() +
   labs(title = "Emissions per attendee (all COPs)", fill = "GHG (tonnes CO2-e)")
 
 ## Panel B
 f2b <- ggplot(data = world) +
-  geom_sf(col = "#e0e0e0",
-          fill = "#e0e0e0") +
+  geom_sf(col = "#b0b0b0",
+          fill = "grey90",
+          linewidth = 0.1) +
   geom_point(data = airport_cop,
              aes(x = Longitude,
                  y = Latitude),
