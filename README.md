@@ -1,6 +1,12 @@
 # The carbon footprint of air travel to three decades of UN climate conferences
 
-**Authors:** - Jake T. W. Williams, MPH ([ORCID](https://orcid.org/0000-0001-8394-2682)) - Philomena Colagiuri, MPH ([ORCID](https://orcid.org/0009-0000-8378-9665)) - Paul J. Beggs, PhD ([ORCID](https://orcid.org/0000-0001-9949-1783)) - Kim Robin van Daalen, PhD ([ORCID](https://orcid.org/0000-0001-6955-9708)) - Aditya Vyas, MBBS MPH ([ORCID](https://orcid.org/0000-0001-6937-3786)) - Arunima Malik, PhD ([ORCID](https://orcid.org/0000-0002-4630-9869)) - Ying Zhang, PhD ([ORCID](https://orcid.org/0000-0001-6214-2440))
+**Authors:** - Jake T. W. Williams, MPH ([ORCID](https://orcid.org/0000-0001-8394-2682)) 
+- Philomena Colagiuri, MPH ([ORCID](https://orcid.org/0009-0000-8378-9665))
+- Paul J. Beggs, PhD ([ORCID](https://orcid.org/0000-0001-9949-1783))
+- Kim Robin van Daalen, PhD ([ORCID](https://orcid.org/0000-0001-6955-9708))
+- Aditya Vyas, MBBS MPH ([ORCID](https://orcid.org/0000-0001-6937-3786))
+- Arunima Malik, PhD ([ORCID](https://orcid.org/0000-0002-4630-9869))
+- Ying Zhang, PhD ([ORCID](https://orcid.org/0000-0001-6214-2440))
 
 **Contact information:** [jake.williams\@sydney.edu.au](mailto:jake.williams@sydney.edu.au){.email}
 
@@ -26,7 +32,3 @@ Figure 1. (A) Total greenhouse gas emissions (tonnes CO2-e) from air travel by P
 **figure_2.png**
 ![Figure 2](outputs/figure_2.png)
 Figure 2. Emissions per COP attendee across UNFCCC COP1-29 (1995-2024) by nominating Party. Emissions calculated as the sum of all emissions divided by the sum all attendees per party. (B) Geographical location of UNFCCC COP1-29 (1995-2024). Host country was different to COP presidency for COP2 (Zimbabwean presidency), COP5 (Polish presidency), COP9 (Hungarian presidency), COP23 (Fijian presidency), and COP25 (Chilean presidency). 
-
-**supplementary_figure_a.png**
-![Supplementary Figure A](outputs/supplementary_figure_a.png)
-Supplementary Figure A. Flight paths for travel to COP29 in Baku, Azerbaijan.
