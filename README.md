@@ -8,7 +8,7 @@
 - Arunima Malik, PhD ([ORCID](https://orcid.org/0000-0002-4630-9869))
 - Ying Zhang, PhD ([ORCID](https://orcid.org/0000-0001-6214-2440))
 
-**Contact information:** [jake.williams\@sydney.edu.au](mailto:jake.williams@sydney.edu.au){.email}
+**Contact information:** [jake.williams\@sydney.edu.au](mailto:jake.williams@sydney.edu.au)
 
 **Date of creation:** 22 July 2025
 
