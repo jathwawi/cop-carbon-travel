@@ -1,6 +1,7 @@
 # The carbon footprint of air travel to three decades of UN climate conferences
 
-**Authors:** - Jake T. W. Williams, MPH ([ORCID](https://orcid.org/0000-0001-8394-2682)) 
+**Authors:** 
+- Jake T. W. Williams, MPH ([ORCID](https://orcid.org/0000-0001-8394-2682)) 
 - Philomena Colagiuri, MPH ([ORCID](https://orcid.org/0009-0000-8378-9665))
 - Paul J. Beggs, PhD ([ORCID](https://orcid.org/0000-0001-9949-1783))
 - Kim Robin van Daalen, PhD ([ORCID](https://orcid.org/0000-0001-6955-9708))
