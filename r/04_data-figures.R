@@ -72,7 +72,7 @@ airport_cop <- airport_cop %>%
               dplyr::select(IATA, Longitude, Latitude),
             by = c("Dest" = "IATA"))
 
-# Data for Appendix Table D2----
+# Data for Supplementary Table H----
 cop_summary_sens <- cop_summary %>% 
   dplyr::mutate(emissions_sens_1_total = emissions_sens_1 * Number,
                 emissions_sens_2_total = emissions_sens_2 * Number,
@@ -86,7 +86,7 @@ cop_summary_sens <- cop_summary %>%
                 emissions_sens_2_person = emissions_sens_2_total / number,
                 emissions_sens_3_person = emissions_sens_3_total / number)
 
-# Data for Appendix Figure B2----
+# Data for Supplementary Figure A----
 
 # Map data
 

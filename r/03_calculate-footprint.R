@@ -84,3 +84,6 @@ cop_summary <- cop_summary %>%
                 emissions_sens_1 = dplyr::if_else(is.na(emissions_sens_1), 0, emissions_sens_1),
                 emissions_sens_2 = dplyr::if_else(is.na(emissions_sens_2), 0, emissions_sens_2),
                 emissions_sens_3 = dplyr::if_else(is.na(emissions_sens_3), 0, emissions_sens_3))
+
+# Write cop_summary dataset
+readr::write_csv(cop_summary, "outputs/cop_summary.csv")

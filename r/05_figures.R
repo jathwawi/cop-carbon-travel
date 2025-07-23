@@ -72,10 +72,16 @@ f1c <- ggplot(data = cop_summary_delegation_wb,
 
 
 ## Draw Figure 1
-(f1a / f1b / f1c) + 
+f1 <- (f1a / f1b / f1c) + 
   plot_annotation(tag_levels = 'A',
                   theme = theme(plot.caption = element_text(hjust = 0)))
 
+ggplot2::ggsave("outputs/figure_1.png",
+                plot = f1,
+                width = 180,
+                height = 200,
+                units = "mm",
+                dpi = 300)
 
 # Figure 2
 
@@ -97,12 +103,12 @@ f2b <- ggplot(data = world) +
              aes(x = Longitude,
                  y = Latitude),
              color = "darkgreen",
-             size = 1) +
+             size = 0.5) +
   geom_text_repel(data = airport_cop,
                   aes(x = Longitude,
                       y = Latitude,
                       label = COP),
-                  size = 2.5,
+                  size = 2,
                   max.overlaps = Inf,
                   force = 3,
                   segment.size = 0.2,
@@ -111,17 +117,28 @@ f2b <- ggplot(data = world) +
   labs(title = "COP host locations")
 
 ## Figure 2
-(f2a / f2b) +
+f2 <- (f2a / f2b) +
   plot_annotation(tag_levels = "A")
 
-# Appendix Figure B2
+ggplot2::ggsave("outputs/figure_2.png",
+                plot = f2,
+                width = 180,
+                units = "mm",
+                dpi = 300)
 
-fb2 <- ggplot(data = world) +
+# Appendix Figure H
+
+fah <- ggplot(data = world) +
   geom_sf(fill = "#e0e0e0", color = "#e0e0e0") +
   geom_point(data = routes_figure, aes(x = A_lon, y = A_lat), color = "darkgreen", size = 0.2) +
   geom_point(data = routes_figure, aes(x = B_lon, y = B_lat), color = "darkgreen", size = 0.2) +
   geom_path(data = route_figure_segment, aes(x = lon, y = lat, group = interaction(route_id, segment)), color = "darkgreen", size = 0.3, alpha = 0.5) +
-  theme_void() 
+  theme_void()
 
-## Draw Appendix Figure B2
-fb2
+## Draw Appendix Figure H
+ggplot2::ggsave("outputs/supplementary_figure_h.png",
+                plot = fah,
+                width = 180,
+                height = 200,
+                units = "mm",
+                dpi = 300)
