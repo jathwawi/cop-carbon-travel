@@ -90,7 +90,7 @@ f2a <- ggplot(cop_map) +
   geom_sf(aes(fill = emissions_attendee),
           col = "#b0b0b0",
           linewidth = 0.01) +
-  scale_fill_gradient(high = "#33a02c", low = "#1f78b4", na.value = "grey90") + 
+  scale_fill_viridis_c(na.value = "grey90") + 
   theme_void() +
   labs(title = "Emissions per attendee (all COPs)", fill = "GHG (tonnes CO2-e)")
 
