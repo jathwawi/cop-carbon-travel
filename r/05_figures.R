@@ -65,7 +65,7 @@ f1c <- ggplot(data = cop_summary_delegation_wb,
   scale_fill_brewer(palette = "Paired") +
   theme_classic() +
   labs(x = "UNFCCC Conference of the Parties Number",
-       y = "% attendees in study",
+       y = "Proportion of attendees",
        fill = "Delegation region") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
   theme(legend.key.size = unit(5, 'mm'))
