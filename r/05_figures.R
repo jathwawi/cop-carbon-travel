@@ -11,7 +11,8 @@ library(geosphere)
 library(maps)
 library(rnaturalearth)
 library(rnaturalearthdata)
-library(ggrepel)   
+library(ggrepel)
+library(RColorBrewer)
 
 # Figures---- 
 
@@ -19,11 +20,13 @@ library(ggrepel)
 
 ## Panel A
 f1a <- ggplot(data = cop_summary_host,
-              aes(x = Meeting)) +
-  geom_bar(aes(y = emissions_total), 
-           stat = "identity",
-           fill = "#cab2d6") +
-  geom_line(aes(y = Number*max(emissions_total) / max(Number), group = 1), color = "#6a3d9a") +
+              aes(fill = Source,
+                  x = Meeting,
+                  y = value)) +
+  geom_bar(position = "stack", 
+           stat = "identity") +
+  scale_fill_manual(values = brewer.pal(12, "Paired")[1:3]) +
+  geom_line(aes(y = Number*max(emissions_total) / max(Number), group = 1), color = "black") +
   scale_y_continuous(
     name = expression("GHG (t CO"[2]*"-e)"),
     breaks = pretty(cop_summary_host$emissions_total, n = 10),

@@ -8,6 +8,7 @@
 library(geosphere)
 library(maps)
 library(sf)
+library(tidyverse)
 
 # Data for Figure 1----
 
@@ -30,8 +31,14 @@ cop_summary_delegation_wb <- cop_summary %>%
 
 # Create cop host summary data
 cop_summary_host <- cop_summary %>% 
-  dplyr::mutate(emissions_total = emissions * Number) %>% 
+  dplyr::mutate(emissions_total = emissions * Number,
+                emissions_sens1 = emissions_sens_1 * Number,
+                emissions_sens2 = emissions_sens_2 * Number,
+                emissions_sens3 = emissions_sens_3 * Number) %>% 
   dplyr::summarise(emissions_total = sum(emissions_total),
+                   emissions_sens1 = sum(emissions_sens1),
+                   emissions_sens2 = sum(emissions_sens2),
+                   emissions_sens3 = sum(emissions_sens3),
                    Number = sum(Number),
                    .by = c(Meeting, Host_country, Host_wb, Host_country)) %>% 
   dplyr::mutate(Meeting = factor(Meeting,
@@ -47,6 +54,21 @@ cop_summary_host <- cop_summary %>%
                                           meeting_country),
                 meeting_country = factor(meeting_country, 
                                          levels = unique(meeting_country[order(as.numeric(Meeting))])))
+
+# Format data for figure 1A with emissions source
+cop_summary_host <- cop_summary_host %>% 
+  mutate(emissions_sens2 = emissions_total - emissions_sens2,
+         emissions_sens3 = emissions_total - emissions_sens3) %>% 
+  rename(emissions_direct = emissions_sens1,
+         emissions_wtt = emissions_sens2,
+         emissions_indirect = emissions_sens3)
+
+cop_summary_host <- cop_summary_host %>%
+  pivot_longer(emissions_direct:emissions_indirect) %>% 
+  rename(Source = name) %>% 
+  mutate(Source = case_when(Source == "emissions_direct" ~ "Direct",
+                            Source == "emissions_indirect" ~ "Indirect",
+                            Source == "emissions_wtt" ~ "Well-to-tank"))
 
 
 # Data for Figure 2----
