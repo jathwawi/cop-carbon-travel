@@ -13,6 +13,7 @@ library(rnaturalearth)
 library(rnaturalearthdata)
 library(ggrepel)
 library(RColorBrewer)
+library(cowplot)
 
 # Figures---- 
 
@@ -25,7 +26,7 @@ f1a <- ggplot(data = cop_summary_host,
                   y = value)) +
   geom_bar(position = "stack", 
            stat = "identity") +
-  scale_fill_manual(values = brewer.pal(12, "Paired")[1:3]) +
+  scale_fill_manual(values = c("#A6CEE3", "#377eb8", "#245882")) +
   geom_line(aes(y = Number*max(emissions_total) / max(Number), group = 1), color = "black") +
   scale_y_continuous(
     name = expression("GHG (t CO"[2]*"-e)"),
@@ -42,12 +43,20 @@ f1a <- ggplot(data = cop_summary_host,
   )
 
 ## Panel B
+cop_summary_host <- cop_summary_host %>% 
+  dplyr::mutate(source_person = value / Number)
+
 f1b <- ggplot(data = cop_summary_host,
               aes(x = meeting_country,
-                  y = emissions_person,
-                  fill = Host_wb)) +
+                  y = source_person,
+                  fill = interaction(Source, Host_wb))) +
   geom_bar(stat = "identity") +
-  scale_fill_brewer(palette = "Paired") +
+  scale_fill_manual(values = c("#fb9a99", "#e31a1c", "#991111", "#b2df8a", 
+                               "#33a02c", "#1D5C1A", "#fdbf6f", "#ff7f00",
+                               "#d95f02", "#cab2d6", "#984ea3", "#6a3d9a",
+                               "#ffffb3", "#ffff33", "#BDBD26", "#B35B2788",
+                               "#b15928", "#592D13", "#FA82C083", "#f781bf",
+                               "#804463")) +
   ggplot2::theme_classic() +
   ggplot2::labs(x = "UNFCCC Conference of the Parties Number",
                 y = expression("GHG (t CO"[2]*"-e / person)"),
@@ -56,7 +65,9 @@ f1b <- ggplot(data = cop_summary_host,
     axis.text.x = element_blank(),
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank()
-  )
+  ) +
+  theme(legend.position = "none")
+  
 
 ## Panel C
 f1c <- ggplot(data = cop_summary_delegation_wb,
@@ -65,7 +76,8 @@ f1c <- ggplot(data = cop_summary_delegation_wb,
                   y = Number)) +
   geom_bar(position = "fill",
            stat = "identity") +
-  scale_fill_brewer(palette = "Paired") +
+  scale_fill_manual(values = c("#e31a1c", "#33a02c", "#984ea3", 
+                               "#ff7f00", "#ffff33", "#b15928", "#f781bf")) +
   theme_classic() +
   labs(x = "UNFCCC Conference of the Parties Number",
        y = "Proportion of attendees",
@@ -85,6 +97,7 @@ ggplot2::ggsave("outputs/figure_1.png",
                 height = 200,
                 units = "mm",
                 dpi = 300)
+# NOTE: HOST FIGURE LEGEND ADDED MANUALLY
 
 # Figure 2
 
