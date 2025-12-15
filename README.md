@@ -13,7 +13,7 @@
 
 **Date of creation:** 22 July 2025
 
-This repository includes the code and analysis underlying the Brief Communication entitled "The carbon footprint of air travel to three decades of UN climate conferences" published in [Journal Pending]. It includes code to create summary data and figures.
+This repository includes the code and analysis underlying the Brief Communication entitled "The carbon footprint of air travel to three decades of UN climate conferences" published in Communications Sustainability. It includes code to create summary data and figures.
 
 #### Abstract:
 
