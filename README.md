@@ -15,6 +15,9 @@
 
 This repository includes the code and analysis underlying the Brief Communication entitled "The carbon footprint of air travel to three decades of UN climate conferences" published in Communications Sustainability. It includes code to create summary data and figures.
 
+The article is available open access here: [https://doi.org/10.1038/s44458-026-00041-x](https://doi.org/10.1038/s44458-026-00041-x)
+
+
 #### Abstract:
 
 We present the first estimate of greenhouse gas emissions from travel by Party and Observer State attendees to all Conference of the Parties (COP) to the United Nations Framework Convention on Climate Change (UNFCCC) from 1995 to 2024. Emissions totalled 710,282 tonnes CO2-e over the study period and increased 2500% from COP1 (2,959 tonnes CO2-e) to COP29 (76,931 tonnes CO2-e). Emissions per attendee were higher for COPs farther from Europe.
